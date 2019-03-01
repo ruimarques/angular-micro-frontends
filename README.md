@@ -17,4 +17,4 @@ then
 ## Routing issue:
 
 - Navigate to page 2 (which in fact is inside micro frontend "client-a")
-- Then Click link "Take me to client-a". Should take you to client-a "home" (PageComponent) but what actually happens is that the url is updated but it does not navigate to client-a "home" (PageComponent).
+- Then Click link "routerLink to client-a". Should take you to client-a "home" (PageComponent) but what actually happens is that the url is updated but it does not navigate to client-a "home" (PageComponent).

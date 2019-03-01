@@ -10,7 +10,19 @@
   </li>
   <li>
     <h2>
-      <a [routerLink]="['/microapp/client-a']">Take me to client-a</a>
+      <a [routerLink]="['/microapp/client-a']">routerLink to client-a</a>
+    </h2>
+  </li>
+  <li>
+    <h2>
+      <a href="localhost:4200/#/microapp/client-a">href to client-a</a>
+    </h2>
+  </li>
+  <li>
+    <h2>
+      <button (click)="hackWindow('/#/microapp/client-a')">
+        window.location to client-a
+      </button>
     </h2>
   </li>
 </ul>
