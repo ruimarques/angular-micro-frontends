@@ -20,12 +20,9 @@ export class AppComponent implements OnInit {
 
     // Maybe this is not the best approach but the idea is
     // to use this guid to load some data from the server
-    // and display it in the PageComponent.
-    // Potentially this app will have other routes
-    // but their navigation would be by normal user interaction,
-    // not like this "on app load":
+    // and display it in the PageComponent:
 
-    this.router.navigateByUrl(`microapp/client-a/${this.guid}`);
+    this.router.navigateByUrl(`/microapp/client-a/${this.guid}`);
 
     console.log('load : ', this.guid);
   }

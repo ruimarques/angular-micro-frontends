@@ -80605,11 +80605,8 @@ var AppComponent = /** @class */ (function () {
         this.router.initialNavigation();
         // Maybe this is not the best approach but the idea is
         // to use this guid to load some data from the server
-        // and display it in the PageComponent.
-        // Potentially this app will have other routes
-        // but their navigation would be by normal user interaction,
-        // not like this "on app load":
-        this.router.navigateByUrl("microapp/client-a/" + this.guid);
+        // and display it in the PageComponent:
+        this.router.navigateByUrl("/microapp/client-a/" + this.guid);
         console.log('load : ', this.guid);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -80678,6 +80675,10 @@ var AppModule = /** @class */ (function () {
                     },
                     {
                         path: 'microapp/client-a/:guid',
+                        component: _page_page_component__WEBPACK_IMPORTED_MODULE_6__["PageComponent"]
+                    },
+                    {
+                        path: 'microapp/client-a',
                         component: _page_page_component__WEBPACK_IMPORTED_MODULE_6__["PageComponent"]
                     }
                 ], { useHash: true })

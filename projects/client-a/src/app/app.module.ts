@@ -20,6 +20,10 @@ import { Page2Component } from './page2/page2.component';
         {
           path: 'microapp/client-a/:guid',
           component: PageComponent
+        },
+        {
+          path: 'microapp/client-a',
+          component: PageComponent
         }
       ],
       { useHash: true }
