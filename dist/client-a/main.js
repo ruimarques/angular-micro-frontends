@@ -80647,6 +80647,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _page_page_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./page/page.component */ "./src/app/page/page.component.ts");
+/* harmony import */ var _page2_page2_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./page2/page2.component */ "./src/app/page2/page2.component.ts");
+
 
 
 
@@ -80666,18 +80668,23 @@ var AppModule = /** @class */ (function () {
     };
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_page_component__WEBPACK_IMPORTED_MODULE_6__["PageComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_page_component__WEBPACK_IMPORTED_MODULE_6__["PageComponent"], _page2_page2_component__WEBPACK_IMPORTED_MODULE_7__["Page2Component"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot([
                     {
-                        path: 'microapp/sync/:guid',
+                        path: 'microapp/client-a/page2',
+                        component: _page2_page2_component__WEBPACK_IMPORTED_MODULE_7__["Page2Component"]
+                    },
+                    {
+                        path: 'microapp/client-a/:guid',
                         component: _page_page_component__WEBPACK_IMPORTED_MODULE_6__["PageComponent"]
                     }
-                ])
+                ], { useHash: true })
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            bootstrap: [],
+            entryComponents: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injector"]])
     ], AppModule);
@@ -80688,17 +80695,6 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/page/page.component.css":
-/*!*****************************************!*\
-  !*** ./src/app/page/page.component.css ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9qZWN0cy9jbGllbnQtYS9zcmMvYXBwL3BhZ2UvcGFnZS5jb21wb25lbnQuY3NzIn0= */"
-
-/***/ }),
-
 /***/ "./src/app/page/page.component.html":
 /*!******************************************!*\
   !*** ./src/app/page/page.component.html ***!
@@ -80706,7 +80702,18 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  page works!\n</p>\n"
+module.exports = "<div class=\"page\">\n  <div>Client-a page 1: {{ guid }}</div>\n  <a [routerLink]=\"'/microapp/client-a/page2'\">Get met to page 2!</a>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/page/page.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/page/page.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".page {\n  border: 1px solid red;\n  padding: 40px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9ydWltYXJxdWVzL3dvcmtzcGFjZS9hbmd1bGFyLW1pY3JvLWZyb250ZW5kcy9wcm9qZWN0cy9jbGllbnQtYS9zcmMvYXBwL3BhZ2UvcGFnZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtFQUNyQixhQUFhLEVBQUEiLCJmaWxlIjoicHJvamVjdHMvY2xpZW50LWEvc3JjL2FwcC9wYWdlL3BhZ2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucGFnZSB7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcbiAgcGFkZGluZzogNDBweDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -80737,11 +80744,69 @@ var PageComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-page',
             template: __webpack_require__(/*! ./page.component.html */ "./src/app/page/page.component.html"),
-            styles: [__webpack_require__(/*! ./page.component.css */ "./src/app/page/page.component.css")]
+            styles: [__webpack_require__(/*! ./page.component.scss */ "./src/app/page/page.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], PageComponent);
     return PageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/page2/page2.component.html":
+/*!********************************************!*\
+  !*** ./src/app/page2/page2.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"page\">\n  <div>Client-a page 2</div>\n  <button (click)=\"location.back()\">Back</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/page2/page2.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/page2/page2.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".page {\n  border: 1px solid blue;\n  padding: 40px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9ydWltYXJxdWVzL3dvcmtzcGFjZS9hbmd1bGFyLW1pY3JvLWZyb250ZW5kcy9wcm9qZWN0cy9jbGllbnQtYS9zcmMvYXBwL3BhZ2UyL3BhZ2UyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQXNCO0VBQ3RCLGFBQWEsRUFBQSIsImZpbGUiOiJwcm9qZWN0cy9jbGllbnQtYS9zcmMvYXBwL3BhZ2UyL3BhZ2UyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhZ2Uge1xuICBib3JkZXI6IDFweCBzb2xpZCBibHVlO1xuICBwYWRkaW5nOiA0MHB4O1xufVxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/page2/page2.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/page2/page2.component.ts ***!
+  \******************************************/
+/*! exports provided: Page2Component */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Page2Component", function() { return Page2Component; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm5/common.js");
+
+
+
+var Page2Component = /** @class */ (function () {
+    function Page2Component(location) {
+        this.location = location;
+    }
+    Page2Component.prototype.ngOnInit = function () { };
+    Page2Component = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-page2',
+            template: __webpack_require__(/*! ./page2.component.html */ "./src/app/page2/page2.component.html"),
+            styles: [__webpack_require__(/*! ./page2.component.scss */ "./src/app/page2/page2.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"]])
+    ], Page2Component);
+    return Page2Component;
 }());
 
 

@@ -5,20 +5,29 @@ import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { PageComponent } from './page/page.component';
+import { Page2Component } from './page2/page2.component';
 
 @NgModule({
-  declarations: [AppComponent, PageComponent],
+  declarations: [AppComponent, PageComponent, Page2Component],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: 'microapp/sync/:guid',
-        component: PageComponent
-      }
-    ])
+    RouterModule.forRoot(
+      [
+        {
+          path: 'microapp/client-a/page2',
+          component: Page2Component
+        },
+        {
+          path: 'microapp/client-a/:guid',
+          component: PageComponent
+        }
+      ],
+      { useHash: true }
+    )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [],
+  entryComponents: [AppComponent]
 })
 export class AppModule {
   constructor(private injector: Injector) {}

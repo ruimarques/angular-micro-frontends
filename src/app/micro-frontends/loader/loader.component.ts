@@ -25,6 +25,8 @@ export class LoaderComponent implements OnInit {
     this.activatedRoute.url.pipe(take(1)).subscribe((url: UrlSegment[]) => {
       const config = this.appsConfig[url.length && url[0].path];
 
+      console.log('loader config: ', config);
+
       if (config) {
         const content = document.getElementById('microapp-container');
         const element = document.createElement(config.element) as any;
